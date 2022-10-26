@@ -27,6 +27,9 @@ Route::get('show',function(){
 Route::post('/createText', [HomeController::class, 'createText']);
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/viewText/{id}', [HomeController::class, 'showText']);
+
 Route::get('/editText/{id}', [HomeController::class, 'editText']);
+Route::post('{id}', [HomeController::class, 'updateText']);
+
 Route::get('/deleteText/{id}', [HomeController::class, 'deleteText']);
 

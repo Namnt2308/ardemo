@@ -66,7 +66,6 @@ import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
     
       const loader = new GLTFLoader();
       const filename='{{asset('/storage/uploads/'.$filename)}}';
-      // console.log(filename);
       loader.load(filename, function(gltf){
       const car = gltf.scene.children[0];
         car.scale.set(0.5,0.5,0.5);

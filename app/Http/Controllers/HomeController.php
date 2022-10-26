@@ -39,6 +39,13 @@ class HomeController extends Controller
         $text = Text::find($id);
         return view('editText', compact('text'));
     }
+    public function updateText(Request $request,$id)
+    {
+        $text = Text::find($id);
+        $text->content = $request->input('text');
+        $text->save();
+        return redirect('/');
+    }
 
     public function deleteText($id)
     {
