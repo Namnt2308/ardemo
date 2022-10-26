@@ -9,6 +9,7 @@ class Text extends Model
 {
     use HasFactory;
     protected $table = 'text';
-    protected $fillable = ['text'];
+    protected $fillable = ['id', 'content', 'viewer'];
+    
     
 }

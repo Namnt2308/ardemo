@@ -30,19 +30,16 @@
 		<a-plane color="white" rotation="-90 0 0" position="0 -0.25 0" width="3" material="transparent: true; opacity: 0.90"></a-plane>
 
 
-		<a-text value="Nam" font="{{asset('fonts/Exo2Bold.fnt')}}" color="red" rotation="-90 0 0" align="center" scale="2 2 2"></a-text>
+		<a-text value="{{$text->content}}" font="{{asset('fonts/Exo2Bold.fnt')}}" color="red" rotation="-90 0 0" align="center" scale="2 2 2"></a-text>
 		
 		<!-- positioning a second copy to attempt drop-shadow effect; need to adjust position to avoid z-fighting -->
-
-
 	</a-marker>
 
 	<!-- 3D text -->
 	<a-marker type="pattern" url="{{asset('data/hiro.patt')}}">
 
-	
-		<a-entity text-geometry="value:{{$text}}; font: #exoFont;">
-		</a-entity>
+	<a-entity text-geometry="value:{{$text->content}}; font: #exoFont;">
+	</a-entity>
 
 	</a-marker>
 

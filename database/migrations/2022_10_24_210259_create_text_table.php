@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('text', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('text');
+            $table->string('content');
+            $table->integer('viewer')->default(0);
             $table->timestamps();
         });
     }
