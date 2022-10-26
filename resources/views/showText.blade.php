@@ -12,31 +12,31 @@
 
 
 <!-- support 3D text -->
-<script type="module" src="{{asset('js/aframe-text-geometry-component.min.js')}}"></script>
+<script type="module" src="js/aframe-text-geometry-component.min.js"></script>
     <title></title>
 </head>
 <body>
 <a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
 
-	<a-assets>
-		<a-asset-item id="exoFont" src="{{asset('fonts/exoBlack.typeface.json')}}"></a-asset-item>
+	<a-assets></a-assets>
+		<a-asset-item id="exoFont" src="fonts/exoBlack.typeface.json"></a-asset-item>
 		
 	</a-assets>
 
 	<!-- 2D text -->
-	<a-marker type="pattern" url="{{asset('data/kanji.patt')}}">
+	<a-marker type="pattern" url="data/kanji.patt">
 		
 		<!-- positioning a plane directly below text for increased visibility; need to adjust position to avoid z-fighting.  -->
 		<a-plane color="white" rotation="-90 0 0" position="0 -0.25 0" width="3" material="transparent: true; opacity: 0.90"></a-plane>
 
 
-		<a-text value="{{$text->content}}" font="{{asset('fonts/Exo2Bold.fnt')}}" color="red" rotation="-90 0 0" align="center" scale="2 2 2"></a-text>
+		<a-text value="{{$text->content}}" font="fonts/Exo2Bold.fnt" color="red" rotation="-90 0 0" align="center" scale="2 2 2"></a-text>
 		
 		<!-- positioning a second copy to attempt drop-shadow effect; need to adjust position to avoid z-fighting -->
 	</a-marker>
 
 	<!-- 3D text -->
-	<a-marker type="pattern" url="{{asset('data/hiro.patt')}}">
+	<a-marker type="pattern" url="data/hiro.patt">
 
 	<a-entity text-geometry="value:{{$text->content}}; font: #exoFont;">
 	</a-entity>
