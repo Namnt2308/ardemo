@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TextController;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,10 @@ Route::post('{id}', [HomeController::class, 'updateText']);
 
 Route::get('/deleteText/{id}', [HomeController::class, 'deleteText']);
 
+
+Route::get('qrcode', function () {
+    return QrCode::size(300)->generate('A basic example of QR code!');
+});
+Route::group(['middleware' => 'filter'], function() {
+    Route::resource('texts', 'HomeController');
+});

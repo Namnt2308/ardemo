@@ -51,17 +51,23 @@
                                             {{-- <th>Name <i class="fa fa-sort"></i></th> --}}
                                             <th>Text</th>
                                             <th>Scan</th>
+                                            <th>QR</th>
                                             <th>CreateAt</th>
                                             <th>Actions</th>
                                             
                                         </tr>
                                     </thead>
                                     <tbody>
+                                       
                                         @foreach ($texts as $item)
+                                        @php
+                                        $qrcode_url= url('viewText/'.$item->id);
+                                        @endphp
                                         <tr>
                                             <td>{{$item->id}}</td>
                                             <td>{{$item->content}}</td>
                                             <td>{{$item->viewer}}</td>
+                                            <td><p class="qrcode_style">{{QrCode::size(50)->generate($qrcode_url)}}</p></td>
                                             <td>{{$item->created_at}}</td>
                                             
                                             <td>
@@ -78,7 +84,7 @@
 
                     </div>
                    
-
+                    
                 <footer class="main">
                     <div class="col-md-5"></div>
                     <div class="col-md-7 text-right"></div>
